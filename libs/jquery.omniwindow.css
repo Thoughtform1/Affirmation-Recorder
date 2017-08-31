@@ -1,0 +1,54 @@
+/* Default class for an overlay */
+.ow-overlay {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  background: #424242;
+  background:black;
+  opacity: 0.5;
+}
+
+/* Default class for both hidden overlay and modal window */
+.ow-closed {
+  display: none;
+}
+
+/* Default class for modal window */
+.modal {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  top: 50px;
+  width: 300px;
+box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+}
+
+.modal > * {
+  margin-bottom:15px;
+  
+}
+
+.modal > div > input[type=checkbox] {
+
+  width: 20px; /*Desired width*/
+  height: 20px; /*Desired height*/
+  cursor: pointer;
+background:white;
+margin-right:10px;
+
+}
+
+.modalTitle {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+  color:white;
+  font-weight:900;
+  font-size: 24px;
+  background:#333333;
+}
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Affirmation Recorder</title>
+    <!-- <link href="libs/w3.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css"> -->
+    <!-- <link href="pure.css" rel="stylesheet">
+    <link href="w3.css" rel="stylesheet"> -->
+    <link href="custom.css" rel="stylesheet">
+    <link rel='stylesheet prefetch' href='navbar.css'>
+    <script src="libs/jquery.js"></script>
+    <script src="libs/vue.js"></script>
+    <script src="libs/microm.js"></script>
+    <script src="libs/crunker.js"></script>
+    <script type="text/javascript" src="libs/jquery.omniwindow.js"></script>
+    <link href="libs/jquery.omniwindow.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+            
+        <div class="title"><span>Affirmation</span> <span>Recorder</span></div>
+
+        <nav>
+          <a class="navItem" onclick="newAffirmation()">Add New</a>
+          <a onclick="toggleMixPlay()" v-bind:class="{ mixPlay: mixPlay }">{{ mixPlay ? 'Stop Mix' : 'Play Mix' }}</a>
+          <a onclick="$modal.trigger('show')">Download Mix</a>
+          <a v-on:click="affirmations = []">Clear All</a>
+          <a onclick="saveSession()">Save</a>
+          <a onclick="loadSession()">Load</a>
+        </nav>
+    <!-- <a class="pure-menu-heading pure-menu-link title" style="font-weight:900;">Affirmation List</a> -->
+        <!-- <div class="pure-menu pure-menu-horizontal">
+            <div class="menu-item-list">
+                <div class="pure-menu-item" onclick="newAffirmation()">
+                    <a class="pure-menu-link navitem">Add New</a>
+                </div>
+                <div class="pure-menu-item" v-on:click="affirmations = []">
+                    <a class="pure-menu-link navitem">Clear All</a>
+                </div>
+                <div class="pure-menu-item" onclick="toggleMixPlay()">
+                    <a class="pure-menu-link navitem" v-bind:class="{ redunderline: mixPlay }">{{ mixPlay ? 'Stop Mix' : 'Play Mix' }}</a>
+                </div>
+                <div class="pure-menu-item" onclick="$modal.trigger('show');">
+                    <a class="pure-menu-link navitem">Download</a>
+                </div>
+                <div class="pure-menu-item" onclick="saveSession()">
+                    <a class="pure-menu-link navitem">Save Session</a>
+                </div>
+                <div class="pure-menu-item" onclick="loadSession()"><a class="pure-menu-link navitem">Load Session</a>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="mainContent">
+            <div class="affirmationDiv" v-for="(affirmation, index) in affirmations" v-bind:key="affirmation.uid">
+                <a class="recordBtn" v-on:click="affirmation.toggleRecord()" v-bind:class="{ redunderline: affirmation.isRecording }">{{ affirmation.isRecording ? 'Stop' : 'Record' }}</a>
+                <div class="audioDiv" v-html="affirmation.player.outerHTML"></div>
+                <a class="mediaBtn" v-on:click="affirmations.splice(index, 1)">Delete</a>
+            </div>
+        </div>
+
+        <!-- Container for an overlay: --> 
+<div class="ow-overlay ow-closed"></div> 
+<!-- Container for a modal window: --> 
+<div class="modal ow-closed">
+     
+<div class="modalTitle" style="font-weight:900;color:red;">Download Settings</div>
+<div>
+    <span>Repeat</span>
+     <input id="modalRepeat" type="number" name="quantity" min="1" max="20" width="1px" value="1" style="width:50px;text-align:center;">
+     <span>x times...</span>
+</div>
+    <div>
+         <input type="checkbox" name="random" value="false">Randomize<br>
+    </div>
+
+ <div>
+     <button onclick="modalDownload()">Download</button>
+<button onclick="$modal.trigger('hide');">Close</button>
+ </div>
+
+</div>
+
+    </div>
+    <script src="js/util.js" defer></script>
+    <script src="js/affirmation.js" defer></script>
+    <script src="js/storage.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/viewmodel.js" defer></script>
+    <script src="js/download.js" defer></script>
+</body>
+
+
+</html>

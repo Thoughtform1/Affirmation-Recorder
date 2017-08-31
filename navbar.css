@@ -1,0 +1,108 @@
+/*     
+    background: linear-gradient(-65deg, #43C6AC, #F8FFAE); 
+     background: linear-gradient(to right, #03A9F4, #ff00ff);
+     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.9);
+     text-shadow: 1px 1px 2px black; 
+ */
+
+html {
+    text-align: center;
+    background:#494949;
+    background: linear-gradient(to right, #03A9F4, #ff00ff);
+    background: linear-gradient(-65deg, #43C6AC, #F8FFAE); 
+    background:white;
+}
+
+body > * {
+
+}
+
+.title {
+    display:inline-block;
+font-size:60px;
+font-weight:900;
+color:#838383;
+/* border-bottom: 1px solid  #838383; */
+margin-bottom:10px;
+color: #77B4FF;
+color: #AD9992;
+text-shadow: 1px 1px 2px black; 
+cursor: pointer;
+
+
+}
+.title > span {
+    display:inline-block;
+    /* text-decoration: underline wavy; */
+}
+.title>span:nth-of-type(1n)::first-letter {
+    /* color: #77F7FF; */
+    color: #FF8D77;
+    font-size:80px;
+    text-decoration: underline;
+}
+
+.title>span:nth-of-type(2n)::first-letter {
+    color: #77B4FF;
+    color: #FF8D77;
+        
+  }
+
+
+/* - - - - MAIN NAVIGATION CONTAINER - - - - */
+nav {
+display: block;
+
+/* flex-direction: row; */
+/* justify-content: center;  */
+margin-left: 100px;
+margin-right:100px;
+
+}
+
+/* - - - - NAVIGATION ITEM - - - - */
+nav > a {
+    display:inline-block;
+    color: grey;
+font-size:40px;
+cursor: pointer;
+flex-grow: 1;
+margin-right: 20px;
+margin-left: 20px;
+
+
+}
+nav > a::first-letter { 
+    text-shadow: 1px 1px 2px black; 
+    /* color: #77B4FF; */
+    font-weight:900;
+
+}
+
+nav > a:hover {
+        text-decoration: underline;
+/* background:#DCDCDC; */
+text-shadow: 1px 1px 2px black; 
+
+}
+
+
+/* - - - - Effects / Misc - - - - */
+
+.mainText {
+    color:#838383;
+}
+.mainText:hover {
+    color:#282828;
+}
+
+.boxShadow {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.boxShadow:hover { 
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.textShadow {
+    text-shadow: 1px 1px 2px black; 
+}
